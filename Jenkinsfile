@@ -33,6 +33,10 @@ pipeline {
     }
 
     stage('Publish a Artifact') {
+    when {
+      expression {
+        TAG_NAME ==~ ".*" }
+    }
       steps {
         echo 'Publish a Artifact'
         sh 'env'
